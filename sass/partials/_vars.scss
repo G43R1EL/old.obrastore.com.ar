@@ -1,0 +1,22 @@
+// Vars
+
+$colors: (
+    "black": "#000000", // black color
+    "poppy": "#F8C10F", // golden poppy color
+    "cultured": "#F4F4F4", // cultured color
+    "eerie": "#202020" // eerie black color
+);
+
+$fonts: (
+    "quicksand": "'Quicksand', sans-serif;",
+    "raleway": "'Raleway', sans-serif;"
+);
+
+:root {
+    @each $color, $var in $colors {
+        --#{$color}__color: #{$var};
+    }
+    @each $font, $var in $fonts {
+        --#{$font}__font: #{$var};
+    }
+}

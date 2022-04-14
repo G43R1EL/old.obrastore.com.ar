@@ -1,0 +1,51 @@
+:root {
+  --black__color: #000000;
+  --poppy__color: #F8C10F;
+  --cultured__color: #F4F4F4;
+  --eerie__color: #202020;
+  --quicksand__font: 'Quicksand', sans-serif;;
+  --raleway__font: 'Raleway', sans-serif;; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--quicksand__font); }
+
+.wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh; }
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--eerie__color);
+  font-size: 2rem; }
+  header a {
+    text-decoration: none;
+    color: var(--cultured__color);
+    text-transform: uppercase;
+    font-weight: 500; }
+  header nav {
+    width: 100%;
+    align-items: flex-start;
+    padding: 1rem; }
+    header nav ul#nav__main {
+      list-style: none;
+      text-align: center; }
+  header ul.social {
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+    list-style: none; }
+    header ul.social li {
+      margin: 1rem; }
+  header .logo {
+    width: 50%;
+    margin: 2rem; }
+
+main {
+  height: 100vh; }
