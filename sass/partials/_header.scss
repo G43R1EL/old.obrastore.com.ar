@@ -5,6 +5,11 @@ header {
     align-items: center;
     background-color: var(--eerie__color);
     font-size: 2rem;
+    @include desktop {
+        flex-direction: row;
+        align-items: flex-end;
+        font-size: 1rem;
+    }
     a {
         text-decoration: none;
         color: var(--cultured__color);
@@ -13,25 +18,47 @@ header {
     }
     nav {
         width: 100%;
-        align-items:flex-start;
         padding: 1rem;
         ul#nav__main {
             list-style: none;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            @include desktop {
+                max-width: 800px;
+                flex-direction: row;
+                li {
+                    margin: auto;
+                }
+            }
         }
     }
     ul.social {
+        display: flex;
+        flex-direction: row;
         position: absolute;
         top: 0;
         right: 0;
-        float: right;
         list-style: none;
+        @include desktop {
+            flex-direction: row;
+            position: relative;
+        }
         li {
             margin: 1rem;
         }
     }
     .logo {
-        width: 50%;
-        margin: 2rem;
+        margin: 1rem;
+        @include portrait {
+            width: 50vw;
+        }
+        @include landscape {
+            height: 40vh;
+        }
+        @include desktop {
+            height: 8rem;
+        }
     }
 }

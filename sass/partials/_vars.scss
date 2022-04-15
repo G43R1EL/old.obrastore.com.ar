@@ -8,15 +8,43 @@ $colors: (
 );
 
 $fonts: (
-    "quicksand": "'Quicksand', sans-serif;",
-    "raleway": "'Raleway', sans-serif;"
+    "quicksand": "'Quicksand', sans-serif;", // Google Fonts Quicksand
+    "raleway": "'Raleway', sans-serif;" // Google Fonts Raleway
 );
 
 :root {
+    // Colors
     @each $color, $var in $colors {
         --#{$color}__color: #{$var};
     }
+    // Fonts
     @each $font, $var in $fonts {
         --#{$font}__font: #{$var};
+    }
+}
+
+// Media Querys
+// Desktop Media Query
+@mixin desktop {     
+    @media screen and (min-width: 992px) {
+        @content;
+    }
+}
+// Tablet Media Query
+@mixin tablet {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+// Portrait Media Query
+@mixin portrait {
+    @media screen and (orientation:portrait) {
+        @content;
+    }
+}
+// Landscape Media Query
+@mixin landscape {
+    @media screen and (orientation:landscape) {
+        @content;
     }
 }

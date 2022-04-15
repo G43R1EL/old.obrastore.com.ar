@@ -1,4 +1,7 @@
-// Main
 main {
-    height: 100vh;
+    h1 {
+        font-family: var(--raleway__font);
+        font-weight: 700;
+        text-transform: uppercase;
+    }
 }
