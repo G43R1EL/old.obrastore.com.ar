@@ -4,13 +4,58 @@ footer {
     div.container {
         display: flex;
         flex-direction: column;
-        img#data_fiscal {
-            height: 4rem;
-            margin: 1rem;
-        }
+
         @include desktop {
             flex-direction: row;
             justify-content: space-between;
+        }
+        div#footer__nav {
+            margin: 1rem;
+            ul {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                list-style: none;
+                @include desktop {
+                    flex-direction: column;
+                }
+                li {
+                    padding: 0 0.5rem;
+                    a {
+                        color: var(--cultured__color);
+                        text-decoration: none;
+                    }
+                    &:first-of-type {
+                        padding-left: 0;
+                    }
+                    &:last-of-type {
+                        padding-right: 0;
+                    }
+                    @include desktop {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+        div#footer__info-box {
+            margin: 1rem;
+            color: var(--cultured__color);
+            text-align: center;
+            a {
+                color: var(--cultured__color);
+                text-decoration: none;
+            }
+            b {
+                color: var(--poppy__color);
+            }
+        }
+        div#footer__fiscal {
+            display: flex;
+            justify-content: center;
+            margin: 1rem;
+            img#data_fiscal {
+                height: 4rem;
+            }
         }
     }
 }

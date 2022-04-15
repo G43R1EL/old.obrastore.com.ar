@@ -1,0 +1,13 @@
+.poppy_fade {
+    transition: 0.5s;
+}
+
+.poppy_fade:hover {
+    color: var(--poppy__color) !important;
+    transition: 0.5s;
+}
+
+.selected {
+    font-weight: 600;
+    color: var(--poppy__color) !important;
+}
