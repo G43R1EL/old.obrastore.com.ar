@@ -167,6 +167,70 @@ footer {
       footer div.container div#footer__fiscal img#data_fiscal {
         height: 4rem; }
 
+div.slider__container {
+  height: 18rem;
+  position: relative; }
+  @media screen and (min-width: 992px) {
+    div.slider__container {
+      height: 26rem; } }
+  div.slider__container div.slider__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden; }
+    div.slider__container div.slider__content img.slider__image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      position: absolute;
+      z-index: -1; }
+    div.slider__container div.slider__content div.slider__text {
+      padding-left: 3rem; }
+      @media screen and (min-width: 992px) {
+        div.slider__container div.slider__content div.slider__text {
+          padding-left: 5rem;
+          max-width: 50%; } }
+      div.slider__container div.slider__content div.slider__text h1 {
+        color: var(--cultured__color);
+        font-family: var(--raleway__font);
+        font-weight: 700;
+        text-transform: uppercase; }
+        @media screen and (min-width: 992px) {
+          div.slider__container div.slider__content div.slider__text h1 {
+            font-size: 3rem; } }
+      div.slider__container div.slider__content div.slider__text button {
+        background-color: var(--poppy__color);
+        font-family: var(--raleway__font);
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 1rem;
+        border: none;
+        margin-top: 2rem; }
+        @media screen and (min-width: 992px) {
+          div.slider__container div.slider__content div.slider__text button {
+            font-size: 2rem; } }
+  div.slider__container div.slider__controls {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 42%; }
+    @media screen and (min-width: 992px) {
+      div.slider__container div.slider__controls {
+        top: 32%; } }
+    div.slider__container div.slider__controls div a {
+      text-decoration: none;
+      color: var(--poppy__color); }
+    div.slider__container div.slider__controls div i {
+      padding: 1rem;
+      font-size: 2rem; }
+      @media screen and (min-width: 992px) {
+        div.slider__container div.slider__controls div i {
+          padding: 2rem;
+          font-size: 3rem; } }
+
 .poppy_fade {
   transition: 0.5s; }
 
@@ -177,3 +241,6 @@ footer {
 .selected {
   font-weight: 600;
   color: var(--poppy__color) !important; }
+
+.shadow__blur {
+  filter: drop-shadow(5px 5px 10px #000); }

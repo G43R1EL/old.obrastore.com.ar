@@ -11,3 +11,7 @@
     font-weight: 600;
     color: var(--poppy__color) !important;
 }
+
+.shadow__blur {
+    filter: drop-shadow(5px 5px 10px #000);
+}
