@@ -24,6 +24,12 @@ $fonts: (
 }
 
 // Media Querys
+// Larger Media Query
+@mixin larger {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
 // Desktop Media Query
 @mixin desktop {     
     @media screen and (min-width: 992px) {

@@ -12,3 +12,8 @@
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
 }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}

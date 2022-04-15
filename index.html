@@ -14,26 +14,53 @@
 <body>
     <div class="wrapper">
         <header>
-            <img src="./assets/logo.svg" alt="OBRA STORE" class="logo">
-            <nav>
-                <a href="javascript:void(0);" id="nav__icon" onclick="mobileMenuToggler()"></a>
-                <ul id="nav__main">
+            <div class="container">
+                <img src="./assets/logo.svg" alt="OBRA STORE" class="logo">
+                <nav>
+                    <a href="javascript:void(0);" id="nav__icon" onclick="mobileMenuToggler()">
+                        <i class="fa-solid fa-bars" id="nav__icon-bars"></i>
+                        <i class="fa-solid fa-xmark" id="nav__icon-xmark"></i>
+                    </a>
+                    <ul id="nav__main">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </nav>
+                <div id="header__info">
+                    <div id="header__info-box">
+                        <b>OBRA STORE</b>
+                        <a href="tel:1168623525" target="_blank">+54 9 11 6862-3525</a>
+                        <p><a href="https://g.page/obra-store?share" target="_blank">Av. Pres. Arturo Umberto Illia 1857, B1661ABS, Bella Vista, Buenos Aires</a></p>
+                    </div>
+                    <ul class="social">
+                        <li><a href="https://www.instagram.com/obrastore/" target="_blank"><i class="fa-brands fa-instagram"><span>Instagram</span></i></a></li>
+                        <li><a href="https://wa.me/5491168623625?text=Hola,%20necesito%20cotizaci%C3%B3n%20de%20materiales%20y%20mano%20de%20obra" target="_blank"><i class="fa-brands fa-whatsapp"><span>WhatsApp</span></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <h1>INICIO</h1>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <ul>
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#">Sobre nosotros</a></li>
                     <li><a href="#">Servicios</a></li>
                     <li><a href="#">Contacto</a></li>
                 </ul>
-            </nav>
-            <ul class="social">
-                <li><a href="https://www.instagram.com/obrastore/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="https://wa.me/5491168623625?text=Hola,%20necesito%20cotizaci%C3%B3n%20de%20materiales%20y%20mano%20de%20obra" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
-            </ul>
-        </header>
-        <main>
-            <h1>INICIO</h1>
-        </main>
-        <footer>
-            <h1>This is the footer</h1>
+                <div>
+                    <b>OBRA STORE</b>
+                    <a href="tel:1168623525" target="_blank">+54 9 11 6862-3525</a>
+                    <p><a href="https://g.page/obra-store?share" target="_blank">Av. Pres. Arturo Umberto Illia 1857, B1661ABS, Bella Vista, Buenos Aires</a></p>
+                </div>
+                <img src="./assets/data-fiscal.webp" alt="Data Fiscal" id="data_fiscal">
+            </div>
         </footer>
         <script src="https://kit.fontawesome.com/5002fa4658.js" crossorigin="anonymous"></script>
         <script src="./js/mobile_menu.js"></script>

@@ -17,63 +17,105 @@
   grid-template-rows: auto 1fr auto;
   min-height: 100vh; }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto; }
+
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--eerie__color);
-  font-size: 2rem; }
-  @media screen and (min-width: 992px) {
-    header {
-      flex-direction: row;
-      align-items: flex-end;
-      font-size: 1rem; } }
-  header a {
-    text-decoration: none;
-    color: var(--cultured__color);
-    text-transform: uppercase;
-    font-weight: 500; }
-  header nav {
-    width: 100%;
-    padding: 1rem; }
-    header nav ul#nav__main {
-      list-style: none;
-      text-align: center;
+  background-color: var(--eerie__color); }
+  header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem; }
+    @media screen and (min-width: 992px) {
+      header .container {
+        flex-direction: row;
+        align-items: flex-end;
+        font-size: 1rem; } }
+    header .container a {
+      text-decoration: none;
+      color: var(--cultured__color);
+      text-transform: uppercase;
+      font-weight: 500; }
+      @media screen and (min-width: 992px) {
+        header .container a {
+          text-transform: none; } }
+    header .container nav {
+      width: 100%;
+      padding: 1rem; }
+      header .container nav ul#nav__main {
+        list-style: none;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        @media screen and (min-width: 992px) {
+          header .container nav ul#nav__main {
+            max-width: 800px;
+            flex-direction: row; }
+            header .container nav ul#nav__main li {
+              margin: 0 1rem; } }
+    header .container div#header__info {
+      font-size: 1rem;
       display: flex;
       flex-direction: column;
-      margin: 0 auto; }
-      @media screen and (min-width: 992px) {
-        header nav ul#nav__main {
-          max-width: 800px;
-          flex-direction: row; }
-          header nav ul#nav__main li {
-            margin: auto; } }
-  header ul.social {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    top: 0;
-    right: 0;
-    list-style: none; }
-    @media screen and (min-width: 992px) {
-      header ul.social {
-        flex-direction: row;
-        position: relative; } }
-    header ul.social li {
+      align-items: flex-end; }
+      header .container div#header__info div#header__info-box {
+        text-align: left;
+        margin: 1rem; }
+        header .container div#header__info div#header__info-box b {
+          color: var(--poppy__color); }
+        header .container div#header__info div#header__info-box p {
+          color: var(--cultured__color); }
+        @media screen and (min-width: 992px) {
+          header .container div#header__info div#header__info-box {
+            text-align: right; } }
+      header .container div#header__info ul.social {
+        display: flex;
+        flex-direction: column-reverse;
+        position: absolute;
+        top: 0;
+        right: 0;
+        list-style: none; }
+        @media screen and (min-width: 992px) {
+          header .container div#header__info ul.social {
+            flex-direction: row;
+            position: relative; } }
+        header .container div#header__info ul.social li {
+          margin: 1rem; }
+          header .container div#header__info ul.social li span {
+            display: none;
+            padding-left: .5rem; }
+            @media screen and (min-width: 992px) {
+              header .container div#header__info ul.social li span {
+                display: inline; } }
+    header .container .logo {
       margin: 1rem; }
-  header .logo {
-    margin: 1rem; }
-    @media screen and (orientation: portrait) {
-      header .logo {
-        width: 50vw; } }
-    @media screen and (orientation: landscape) {
-      header .logo {
-        height: 40vh; } }
-    @media screen and (min-width: 992px) {
-      header .logo {
-        height: 8rem; } }
+      @media screen and (orientation: portrait) {
+        header .container .logo {
+          width: 50vw; } }
+      @media screen and (orientation: landscape) {
+        header .container .logo {
+          height: 40vh; } }
+      @media screen and (min-width: 992px) {
+        header .container .logo {
+          height: 8rem; } }
 
 main h1 {
   font-family: var(--raleway__font);
   font-weight: 700;
   text-transform: uppercase; }
+
+footer {
+  background-color: var(--eerie__color); }
+  footer div.container {
+    display: flex;
+    flex-direction: column; }
+    footer div.container img#data_fiscal {
+      height: 4rem;
+      margin: 1rem; }
+    @media screen and (min-width: 992px) {
+      footer div.container {
+        flex-direction: row;
+        justify-content: space-between; } }

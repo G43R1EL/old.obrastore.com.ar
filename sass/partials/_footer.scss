@@ -1,1 +1,16 @@
 // Footer
+footer {
+    background-color: var(--eerie__color);
+    div.container {
+        display: flex;
+        flex-direction: column;
+        img#data_fiscal {
+            height: 4rem;
+            margin: 1rem;
+        }
+        @include desktop {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
