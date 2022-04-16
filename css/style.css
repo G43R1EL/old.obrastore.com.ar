@@ -314,6 +314,9 @@ section#customers {
     section#customers div.customer p {
       color: var(--eerie__color);
       margin-bottom: .5rem; }
+    section#customers div.customer q {
+      color: var(--eerie__color);
+      margin-bottom: .5rem; }
 
 .poppy_fade {
   transition: 0.5s; }
