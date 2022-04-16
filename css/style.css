@@ -43,7 +43,7 @@ header {
           text-transform: none; } }
     header .container nav {
       width: 100%;
-      padding: 1rem; }
+      padding: 0 1rem 1rem 1rem; }
       @media screen and (min-width: 992px) {
         header .container nav a#nav__icon {
           display: none; } }
@@ -104,7 +104,7 @@ header {
               header .container div#header__info ul.social li span {
                 display: inline; } }
     header .container .logo {
-      margin: 1rem; }
+      margin: 1rem 1rem 0 1rem; }
       @media screen and (orientation: portrait) {
         header .container .logo {
           width: 50vw; } }
@@ -113,6 +113,7 @@ header {
           height: 40vh; } }
       @media screen and (min-width: 992px) {
         header .container .logo {
+          margin: 1rem;
           height: 8rem; } }
 
 main h1 {
@@ -230,6 +231,89 @@ div.slider__container {
         div.slider__container div.slider__controls div i {
           padding: 2rem;
           font-size: 3rem; } }
+
+section#remarks {
+  background-color: var(--eerie__color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; }
+  @media screen and (min-width: 992px) {
+    section#remarks {
+      flex-direction: row;
+      flex-wrap: nowrap; } }
+  section#remarks div.remark {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-basis: 33%;
+    align-items: center;
+    text-align: center;
+    margin: 3rem 1rem; }
+    section#remarks div.remark div.badge {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background-color: var(--poppy__color);
+      font-size: 2rem; }
+    section#remarks div.remark h2 {
+      margin-top: .5rem;
+      font-family: var(--raleway__font);
+      color: var(--cultured__color); }
+    section#remarks div.remark p {
+      color: var(--poppy__color);
+      margin-bottom: .5rem; }
+
+section#customers {
+  padding-top: 1rem;
+  background-color: var(--poppy__color); }
+  section#customers h2 {
+    font-family: var(--raleway__font);
+    color: var(--eerie__color);
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin: 0 1rem 1rem 1rem; }
+  section#customers div {
+    background-color: var(--cultured__color);
+    display: flex;
+    flex-direction: column; }
+    @media screen and (min-width: 992px) {
+      section#customers div {
+        flex-direction: row;
+        flex-wrap: nowrap; } }
+  section#customers div.customer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-basis: 33%;
+    align-items: center;
+    text-align: center;
+    margin: 3rem 1rem; }
+    section#customers div.customer div.badge__xl {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
+      background-color: var(--poppy__color); }
+      section#customers div.customer div.badge__xl img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; }
+    section#customers div.customer h3 {
+      font-size: 2rem;
+      margin-top: .5rem;
+      font-family: var(--raleway__font);
+      color: var(--poppy__color); }
+    section#customers div.customer p {
+      color: var(--eerie__color);
+      margin-bottom: .5rem; }
 
 .poppy_fade {
   transition: 0.5s; }
