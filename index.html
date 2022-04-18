@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO -->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     <title>Obra Store - Soluciones para la construcción</title>
+    <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom styles -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./assets/logo.svg" type="image/x-icon">
 </head>
 <body>
+    <!-- Main content wrapper -->
     <div class="wrapper">
+        <!-- Header -->
         <header>
             <div class="container">
                 <img src="./assets/logo.svg" alt="OBRA STORE" class="logo">
@@ -41,22 +48,40 @@
                 </div>
             </div>
         </header>
+        <!-- Header end -->
+        <!-- Main content -->
         <main>
             <div class="container">
                 <div class="slider__container">
-                    <div class="slider__content">
-                        <img src="./assets/slider_01.webp" alt="Slider image" class="slider__image">
-                        <div class="slider__text">
-                            <h1 class="shadow__blur">Soluciones para la construcción</h1>
-                            <button>Contactese con nosotros</button>
+                    <div class="slider" id="slider">
+                        <div class="slider__content">
+                            <img src="./assets/slider_01.webp" alt="Slider image" class="slider__image">
+                            <div class="slider__text">
+                                <h1 class="shadow__blur">Soluciones para la construcción</h1>
+                                <button>Contactese con nosotros</button>
+                            </div>
+                        </div>
+                        <div class="slider__content">
+                            <img src="./assets/slider_02.webp" alt="Slider image" class="slider__image">
+                            <div class="slider__text">
+                                <h1 class="shadow__blur">Tenes una obra? Nosotros la solucion</h1>
+                                <button>Contactese con nosotros</button>
+                            </div>
+                        </div>
+                        <div class="slider__content">
+                            <img src="./assets/slider_03.webp" alt="Slider image" class="slider__image">
+                            <div class="slider__text">
+                                <h1 class="shadow__blur">Lorem ipsum dolor sit.</h1>
+                                <button>Contactese con nosotros</button>
+                            </div>
                         </div>
                     </div>
                     <div class="slider__controls">
-                        <div>
-                            <a href="#"><i class="fa-solid fa-chevron-left shadow__blur"></i></a>
+                        <div class="slider__controls-previous">
+                            <i class="fa-solid fa-chevron-left shadow__blur"></i>
                         </div>
-                        <div>
-                            <a href="#"><i class="fa-solid fa-chevron-right shadow__blur"></i></a>
+                        <div class="slider__controls-next">
+                            <i class="fa-solid fa-chevron-right shadow__blur"></i>
                         </div>
                     </div>
                 </div>
@@ -112,6 +137,8 @@
                 </section>
             </div>
         </main>
+        <!-- Main content end -->
+        <!-- Footer -->
         <footer>
             <div class="container">
                 <div id="footer__nav">
@@ -132,8 +159,13 @@
                 </div>
             </div>
         </footer>
+        <!-- Footer end -->
+        <!-- Font Awesome Kit -->
         <script src="https://kit.fontawesome.com/5002fa4658.js" crossorigin="anonymous"></script>
+        <!-- Mobile menu script -->
         <script src="./js/mobile_menu.js"></script>
+        <!-- Slider script -->
+        <script src="./js/slider.js"></script>
     </div>
 </body>
 </html>
