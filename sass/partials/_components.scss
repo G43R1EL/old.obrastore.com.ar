@@ -3,7 +3,11 @@
 // Slider
 div.slider__container {
     position: relative;
+    width: 100vw;
     overflow: hidden;
+    @include desktop {
+        width: 100%;
+    }
     div.slider {
         width: 300%;
         display: flex;

@@ -170,7 +170,11 @@ footer {
 
 div.slider__container {
   position: relative;
+  width: 100vw;
   overflow: hidden; }
+  @media screen and (min-width: 992px) {
+    div.slider__container {
+      width: 100%; } }
   div.slider__container div.slider {
     width: 300%;
     display: flex;
