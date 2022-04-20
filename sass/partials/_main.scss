@@ -260,6 +260,11 @@ div#contact {
             color: var(--cultured__color);
             line-height: 1.5;
             margin: .5rem 0;
+            a {
+                text-decoration: none;
+                color: var(--cultured__color);
+                font-weight: 700;
+            }
         }
         input {
             border: none;
@@ -268,6 +273,8 @@ div#contact {
             font-family: "Quicksand", sans-serif;
             font-size: 1rem;
             color: var(--eerie__color);
+            background-color: var(--cultured__color);
+            border-radius: .25rem;
             &:focus {
                 outline: 1px solid var(--poppy__color);
             }
@@ -278,7 +285,9 @@ div#contact {
             font-family: "Quicksand", sans-serif;
             font-size: 1rem;
             color: var(--eerie__color);
+            background-color: var(--cultured__color);
             height: 6rem;
+            border-radius: .25rem;
             &:focus {
                 outline: 1px solid var(--poppy__color);
             }
@@ -289,6 +298,7 @@ div#contact {
             border: none;
             font-family: "Quicksand", sans-serif;
             font-size: 1.5rem;
+            font-weight: 700;
             background-color: var(--poppy__color);
             color: var(--eerie__color);
         }
@@ -308,6 +318,52 @@ div#contact {
         }
         iframe {
             height: 100%;
+            border: 1px solid var(--cultured__color);
+            border-radius: .25rem;
+        }
+    }
+}
+
+// Service
+div#services {
+    display: grid;
+    background-color: var(--poppy__color);
+    h1 {
+        margin: 1rem;
+    }
+    section.service {
+        position: relative;
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+        div.service__information {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 5;
+            @include desktop {
+                position: absolute;
+                bottom: 0;
+            }
+            h2 {
+                text-transform: uppercase;
+                font-family: "Raleway", sans-serif;
+                @include desktop {
+                    background-color: var(--poppy__color);
+                    width: fit-content;
+                    padding: 1rem;
+                }
+            }
+            article {
+                color: var(--eerie__color);
+                @include desktop {
+                    background-color: var(--cultured__color);
+                    color: var(--eerie__color);
+                    width: 60%;
+                    padding: 1rem;
+                }
+            }
         }
     }
 }

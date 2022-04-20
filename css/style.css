@@ -336,13 +336,19 @@ div#contact {
       color: var(--cultured__color);
       line-height: 1.5;
       margin: .5rem 0; }
+      div#contact form#contact__form p a {
+        text-decoration: none;
+        color: var(--cultured__color);
+        font-weight: 700; }
     div#contact form#contact__form input {
       border: none;
       padding: 0 .5rem;
       line-height: 2rem;
       font-family: "Quicksand", sans-serif;
       font-size: 1rem;
-      color: var(--eerie__color); }
+      color: var(--eerie__color);
+      background-color: var(--cultured__color);
+      border-radius: .25rem; }
       div#contact form#contact__form input:focus {
         outline: 1px solid var(--poppy__color); }
     div#contact form#contact__form textarea {
@@ -351,7 +357,9 @@ div#contact {
       font-family: "Quicksand", sans-serif;
       font-size: 1rem;
       color: var(--eerie__color);
-      height: 6rem; }
+      background-color: var(--cultured__color);
+      height: 6rem;
+      border-radius: .25rem; }
       div#contact form#contact__form textarea:focus {
         outline: 1px solid var(--poppy__color); }
     div#contact form#contact__form button {
@@ -360,6 +368,7 @@ div#contact {
       border: none;
       font-family: "Quicksand", sans-serif;
       font-size: 1.5rem;
+      font-weight: 700;
       background-color: var(--poppy__color);
       color: var(--eerie__color); }
   div#contact div {
@@ -375,7 +384,45 @@ div#contact {
       text-transform: uppercase;
       font-family: var(--raleway__font); }
     div#contact div iframe {
-      height: 100%; }
+      height: 100%;
+      border: 1px solid var(--cultured__color);
+      border-radius: .25rem; }
+
+div#services {
+  display: grid;
+  background-color: var(--poppy__color); }
+  div#services h1 {
+    margin: 1rem; }
+  div#services section.service {
+    position: relative; }
+    div#services section.service img {
+      width: 100%;
+      object-fit: contain; }
+    div#services section.service div.service__information {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      z-index: 5; }
+      @media screen and (min-width: 992px) {
+        div#services section.service div.service__information {
+          position: absolute;
+          bottom: 0; } }
+      div#services section.service div.service__information h2 {
+        text-transform: uppercase;
+        font-family: "Raleway", sans-serif; }
+        @media screen and (min-width: 992px) {
+          div#services section.service div.service__information h2 {
+            background-color: var(--poppy__color);
+            width: fit-content;
+            padding: 1rem; } }
+      div#services section.service div.service__information article {
+        color: var(--eerie__color); }
+        @media screen and (min-width: 992px) {
+          div#services section.service div.service__information article {
+            background-color: var(--cultured__color);
+            color: var(--eerie__color);
+            width: 60%;
+            padding: 1rem; } }
 
 footer {
   background-color: var(--eerie__color); }
