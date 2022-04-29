@@ -9,8 +9,8 @@ function mobileMenuToggler() {
         barsIcon.style.display = "none";
         closeIcon.style.display = "block";
         infoBox.style.display = "none";
-    }
-}
+    };
+};
 
 const menu_icon = document.getElementById('nav__icon');
 const menu = document.getElementById('nav__main');

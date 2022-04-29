@@ -2,7 +2,7 @@ function sliderNext () {
     let firstSlide = document.querySelectorAll(".slider__content")[0];
     console.log(firstSlide);
     slider.style.marginLeft = "-200%";
-    slider.style.transition = "all 0.5s"
+    slider.style.transition = "all 0.5s";
     setTimeout(function() {
         slider.style.transition = "none";
         slider.insertAdjacentElement('beforeend', firstSlide);
@@ -13,7 +13,7 @@ function sliderNext () {
 function sliderPrevious () {
     let lastSlide = document.querySelectorAll(".slider__content")[slides.length-1];
     slider.style.marginLeft = "0";
-    slider.style.transition = "all 0.5s"
+    slider.style.transition = "all 0.5s";
     setTimeout(function() {
         slider.style.transition = "none";
         slider.insertAdjacentElement('afterbegin', lastSlide);

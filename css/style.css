@@ -81,6 +81,7 @@ header {
             text-align: right; } }
       header .container div#header__info ul.social {
         display: flex;
+        align-items: center;
         flex-direction: column-reverse;
         position: absolute;
         top: 0;
@@ -424,6 +425,18 @@ div#services {
             width: 60%;
             padding: 1rem; } }
 
+div#products {
+  margin: .5rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
+  gap: .5rem; }
+  @media screen and (min-width: 992px) {
+    div#products {
+      margin: 1rem 0;
+      gap: 1rem;
+      grid-template-columns: repeat(4, 1fr); } }
+
 footer {
   background-color: var(--eerie__color); }
   footer div.container {
@@ -547,6 +560,87 @@ div.slider__container {
           font-size: 3rem; } }
       div.slider__container div.slider__controls div i:hover {
         color: var(--poppy__color); }
+
+body.modal__active {
+  overflow: hidden; }
+
+div#modal__container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000; }
+  div#modal__container div#modal__form {
+    width: 80%;
+    height: 80%;
+    background-color: var(--eerie__color); }
+    div#modal__container div#modal__form div#modal__header {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: end;
+      border-bottom: 1px solid var(--poppy__color); }
+      div#modal__container div#modal__form div#modal__header i {
+        margin: 1rem;
+        font-size: 2rem;
+        text-align: center;
+        color: var(--poppy__color);
+        cursor: pointer; }
+    div#modal__container div#modal__form div#modal__content {
+      color: var(--cultured__color);
+      padding: 1rem; }
+      div#modal__container div#modal__form div#modal__content table td {
+        text-align: center; }
+      div#modal__container div#modal__form div#modal__content table i.fa-trash-can {
+        color: #ff6666;
+        cursor: pointer; }
+      div#modal__container div#modal__form div#modal__content button#cart__save {
+        background-color: var(--poppy__color);
+        color: var(--eerie__color);
+        font-family: var(--raleway__font);
+        font-weight: 700;
+        text-transform: uppercase;
+        align-self: flex-end;
+        padding: 1rem;
+        border: none;
+        cursor: pointer; }
+
+div.product__card {
+  background-color: var(--eerie__color);
+  padding: 1rem; }
+  div.product__card img {
+    width: 100%; }
+  div.product__card h3 {
+    color: var(--poppy__color); }
+  div.product__card p {
+    color: var(--cultured__color); }
+    div.product__card p.price {
+      text-align: right;
+      margin: .5rem 0; }
+  div.product__card form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; }
+    div.product__card form label {
+      color: var(--cultured__color);
+      font-size: .75rem; }
+    div.product__card form input {
+      margin: .5rem 0;
+      padding-left: .25rem;
+      line-height: 1.5rem;
+      width: 3rem;
+      border: none; }
+      div.product__card form input:focus {
+        outline: 1px solid var(--poppy__color); }
+    div.product__card form button {
+      padding: .5rem;
+      border: none;
+      background-color: var(--poppy__color);
+      cursor: pointer; }
 
 .poppy_fade {
   transition: 0.5s; }
