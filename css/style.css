@@ -103,6 +103,8 @@ header {
             @media screen and (min-width: 992px) {
               header .container div#header__info ul.social li span {
                 display: inline; } }
+          header .container div#header__info ul.social li i.fa-cart-shopping {
+            cursor: pointer; }
     header .container .logo {
       margin: 1rem 1rem 0 1rem; }
       @media screen and (orientation: portrait) {
