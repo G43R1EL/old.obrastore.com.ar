@@ -644,6 +644,22 @@ div.product__card {
       background-color: var(--poppy__color);
       cursor: pointer; }
 
+div#popup__message {
+  color: var(--cultured__color);
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  padding: .75rem;
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+  top: .5rem;
+  right: .5rem;
+  width: 20rem;
+  height: 3rem;
+  border-radius: .5rem;
+  transition: all 1s;
+  z-index: 2000; }
+
 .poppy_fade {
   transition: 0.5s; }
 

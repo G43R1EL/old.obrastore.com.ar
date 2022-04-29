@@ -83,13 +83,15 @@ function agregarItem(idProducto) {
             producto.cantidad = cantidad;
             producto.subtotal = producto.cantidad * producto.precio;
             carrito.push(producto);
+            showPopup('Se agrego el producto...');
         } else {
             let idx = carrito.findIndex(prod => prod.id == idProducto);
             carrito[idx].cantidad += cantidad;
             carrito[idx].subtotal = carrito[idx].cantidad * carrito[idx].precio;
+            showPopup(`Se agrego el producto...`);
         }
     } else {
-        console.log('Debe ingresar un valor numerico mayor a cero');
+        showPopup('No se reconoce valor ingresado...');
     }
 }
 
@@ -101,11 +103,13 @@ function eliminarItem(idProducto, cantidad) {
         if (carrito[idx].cantidad > cantidad) {
             carrito[idx].cantidad -= cantidad;
             carrito[idx].subtotal = carrito[idx].cantidad * carrito[idx].precio;
+            showPopup(`Se quito...`);
         } else {
             carrito.splice(idx,1);
+            showPopup('Producto eliminado...');
         }
     } else {
-        console.log('Debe ingresar un valor numerico menor a cero');
+        showPopup('No se reconoce valor ingresado...');
     }
 }
 
@@ -151,7 +155,7 @@ function tablaCarrito () {
                  <tr><th>Producto</th><th>Precio</th><th>Cantidad</th><th>Subtotal</th><th>Acciones</th></tr>\n`;
     let total = 0;
     for (producto of carrito) {
-        tabla = tabla + `<tr><td>${producto.nombre}</td><td>${producto.precio}</td><td>${producto.cantidad}</td><td>${producto.subtotal}</td><td><i class="fa-solid fa-trash-can" id="${producto.id}" onClick="eliminarItem(this.id,${producto.cantidad}*-1);tablaCarrito();"></i></td></tr>`;
+        tabla = tabla + `<tr><td>${producto.nombre}</td><td>${producto.precio}</td><td>${producto.cantidad}</td><td>${producto.subtotal}</td><td><i class="fa-solid fa-trash-can" id="${producto.id}" onClick="eliminarItem(this.id,${producto.cantidad}*-1);tablaCarrito();showPopup('Producto eliminado...');"></i></td></tr>`;
         total += Number(producto.subtotal);
     }
     tabla = tabla + `</table>
@@ -165,19 +169,38 @@ function tablaCarrito () {
 
 // Guarda el carrito como JSON en LocalStorage
 function guardaCarrito () {
-        let carritoJSON = JSON.stringify(carrito);
-        localStorage.setItem('carrito', carritoJSON);
+        if (carrito.length) {
+            let carritoJSON = JSON.stringify(carrito);
+            localStorage.setItem('carrito', carritoJSON);
+            showPopup('Carrito guardado...');
+        } else {
+            localStorage.removeItem('carrito');
+            showPopup('Carrito limpio...');
+        }
 }
 
 // Carga el carrito de LocalStorage
 function cargarCarrito () {
     let carritoJSON = localStorage.getItem('carrito');
-    carrito = JSON.parse(carritoJSON);
+    if (carritoJSON) {
+        carrito = JSON.parse(carritoJSON);
+        showPopup('Se cargo carrito de sesión anterior...');
+    };
+}
+
+// Muestra mensaje emergente
+function showPopup (message) {
+    popup.innerHTML = message;
+    popup.style.display = 'flex';
+    setTimeout ( function () { popup.style.display='none' }, 1000 );
 }
 
 // Carrito de compras
 let carrito = [];
 
+// Prepara los mensajes emergentes...
+document.querySelector('body').insertAdjacentHTML("afterbegin","<div id='popup__message'></div>");
+const popup = document.querySelector('#popup__message');
 // Obtiene el contenedor de los productos y luego asigna el html generado por la función listarProductos().
 const mainContent = document.querySelector('#products');
 const cartButton = document.querySelector('.fa-cart-shopping');
