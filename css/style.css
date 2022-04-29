@@ -567,7 +567,7 @@ body.modal__active {
   overflow: hidden; }
 
 div#modal__container {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -647,7 +647,7 @@ div.product__card {
 div#popup__message {
   color: var(--cultured__color);
   background-color: rgba(0, 0, 0, 0.75);
-  position: absolute;
+  position: fixed;
   padding: .75rem;
   display: none;
   align-items: center;
