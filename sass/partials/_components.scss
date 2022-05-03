@@ -194,6 +194,10 @@ div.product__card {
         }
     }
 }
+div#modal__content {
+    display: flex;
+    flex-direction: column;
+}
 
 // Popup messages
 div#popup__message {

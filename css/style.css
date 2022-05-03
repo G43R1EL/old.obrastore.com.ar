@@ -644,6 +644,10 @@ div.product__card {
       background-color: var(--poppy__color);
       cursor: pointer; }
 
+div#modal__content {
+  display: flex;
+  flex-direction: column; }
+
 div#popup__message {
   color: var(--cultured__color);
   background-color: rgba(0, 0, 0, 0.75);
