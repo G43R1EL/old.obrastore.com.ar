@@ -2,72 +2,72 @@
 const productsList = [
     {
         id: '1000', 
-        nombre: 'No name', 
-        descripcion: 'Product has no description', 
-        precio: 110, 
-        imagen: '../assets/products/empty.webp' 
+        nombre: 'Caldera Orbis 230TDO', 
+        descripcion: 'Caldera para piscina 30.000kcal', 
+        precio: 100318, 
+        imagen: '../assets/products/230tdo.webp' 
     },
     { 
         id: '1001', 
-        nombre: 'No name', 
-        descripcion: 'Product has no description', 
-        precio: 1500, 
-        imagen: '../assets/products/empty.webp' },
+        nombre: 'Caldera Peisa Diva Duo', 
+        descripcion: 'Caldera tiro natural 24.000kcal', 
+        precio: 166000, 
+        imagen: '../assets/products/diva.webp' },
     { 
         id: '1002', 
-        nombre: 'No name', 
-        descripcion: 'Product has no description', 
-        precio: 10, 
-        imagen: '../assets/products/empty.webp' 
+        nombre: 'Caldera Ariston 24ff', 
+        descripcion: 'Caldera tiro forzado 25.800kcal', 
+        precio: 173255, 
+        imagen: '../assets/products/24ff.webp' 
     },
     { 
         id: '1003', 
-        nombre: 'No name', 
-        descripcion: 'Product has no description', 
-        precio: 200, 
-        imagen: '../assets/products/empty.webp' 
+        nombre: 'Caldera Baxi 24Kw', 
+        descripcion: 'Caldera tiro forzado balanceado 24Kw', 
+        precio: 174999, 
+        imagen: '../assets/products/econova.webp' 
     },
     { 
         id: '1004', 
-        nombre: 'No name', 
-        descripcion: 'Product has no description', 
-        precio: 2500, 
-        imagen: '../assets/products/empty.webp' 
+        nombre: 'Kit losa radiante Servel', 
+        descripcion: 'Kit completo de losa radiante 7 a 9m2', 
+        precio: 18114, 
+        imagen: '../assets/products/servel.webp' 
     },
     { 
         id: '1005', 
-        nombre: 'No name', 
-        descripcion: 'Product has no description', 
-        precio: 250, 
-        imagen: '../assets/products/empty.webp' 
+        nombre: 'Multisplit Samsung', 
+        descripcion: 'Multisplit Inverter Samsung 4a1 3x2300fg + 1x5500fg Ue 10kw', 
+        precio: 680000, 
+        imagen: '../assets/products/multisplit.webp' 
     },
     { 
         id: '1006', 
-        nombre: 'No name', 
-        descripcion: 'Product has no description', 
-        precio: 150, 
-        imagen: '../assets/products/empty.webp' 
+        nombre: 'Aire acondicionado Split LG', 
+        descripcion: 'Aire acondicionado LG split inverter frío/calor 9000 frigorías blanco 220V AVNW36GM1S0', 
+        precio: 399483, 
+        imagen: '../assets/products/split.webp' 
     },
     { 
         id: '1007', 
-        nombre: 'No name', 
-        descripcion: 'Product has no description', 
-        precio: 50, 
-        imagen: '../assets/products/empty.webp' 
+        nombre: 'Salamandra Tromen Chaltén', 
+        descripcion: 'Salamandra Tromen Chaltén de 9000kcal/h', 
+        precio: 103239, 
+        imagen: '../assets/products/chalten.webp' 
     },
     { 
         id: '1008', 
-        nombre: 'No name', 
-        descripcion: 'Product has no description', 
-        precio: 700, 
-        imagen: '../assets/products/empty.webp' 
+        nombre: 'Salamandra Tromen Pehuén', 
+        descripcion: 'Salamandra Tromen Pehuén P-7500',
+        precio: 48999,
+        imagen: '../assets/products/pehuen.webp' 
     },
     { 
         id: '1009', 
-        nombre: 'No name', 
-        descripcion: 'Product has no description', 
-        precio: 240, 
-        imagen: '../assets/products/empty.webp' 
+        nombre: 'Tiro balanceado Volcan', 
+        descripcion: 'Calefactor Tiro Balanceado Volcan 5700kcal', 
+        precio: 32158, 
+        imagen: '../assets/products/volcan.webp' 
     }
 ];
 
@@ -76,7 +76,9 @@ function generateProductsHtml(products) {
     let html = '';
     products.forEach(product => {
         html += `<div class="product__card">
-                     <img src="${product.imagen}"/>
+                     <div class="product__card__image">
+                        <img src="${product.imagen}"/>
+                     </div>
                      <h3>${product.nombre}</h3>
                      <p>${product.descripcion}</p>
                      <p class="price">$ ${product.precio}-</p>
@@ -112,6 +114,11 @@ function generateCartHtml() {
                     <td><i class="fa-solid fa-trash-can" id="removeBtn_${product.id}"></i></td>
                 </tr>`;
     });
+    html += `</tbody>
+             </table>
+             <div id="cart__total">
+                 <p>Total: $ ${getCartTotal()}</p>
+             </div>`;
     return html;
 }
 
@@ -163,9 +170,11 @@ function addProductToCart(productId, qty) {
         if (idx === -1) {
             cart.push(cartItem);
             showPopup(`${qty} ${cartItem.nombre} agregado al carrito`);
+            saveCart();
         } else {
             cart[idx].cantidad += qty;
             showPopup(`${qty} ${cartItem.nombre} agregado al carrito`);
+            saveCart();
         }
     } else { // Si cantidad es 0 advertencia
         showPopup('Cantidad no válida');
@@ -178,18 +187,27 @@ function removeProductFromCart(productId, qty) {
     if (idx !== -1) {
         cart[idx].cantidad += qty;
         showPopup(`${qty} ${cart[idx].nombre} del carrito`);
+        saveCart();
         if (cart[idx].cantidad <= 0) { // Si ya no hay existencias en el carrito quita el producto
             showPopup(`${cart[idx].nombre} eliminado del carrito`);
             cart.splice(idx, 1);
+            saveCart();
         }
     }
 }
 
+// Devuelve el importe total del carrito
+function getCartTotal() {
+    let total = 0;
+    cart.forEach(product => {
+        total += product.precio * product.cantidad;
+    });
+    return total;
+}
+
 // Guarda el carrito en Local Storage
 function saveCart() {
-    if (cart.length > 0) {
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
+    cart.length > 0 ? localStorage.setItem('cart', JSON.stringify(cart)) : localStorage.removeItem('cart');
 }
 
 // Carga el carrito de Local Storage
@@ -197,6 +215,7 @@ function loadCart() {
     const cartData = localStorage.getItem('cart');
     if (cartData) {
         cart = JSON.parse(cartData);
+        showPopup('Carrito cargado');
     }
 }
 
@@ -218,15 +237,11 @@ function refreshCart() {
     const cartHtml = generateCartHtml();
     const cartContainer = document.querySelector('#modal__content');
     cartContainer.innerHTML = cartHtml;
-    if (cart.length > 0) {
-        addEventListenersToDeleteButtons();
-    }
+    cart.length > 0 ? addEventListenersToDeleteButtons() : cartContainer.innerHTML = '<h2>Carrito vacío</h2>';
 }
 
 // Crea el carrito
 let cart = [];
-// Carga el carrito de Local Storage
-loadCart();
 // Carga el html de productos en el div#products
 document.getElementById('products').innerHTML = generateProductsHtml(productsList);
 // Prepara los mensajes emergentes...
@@ -236,3 +251,5 @@ const popup = document.querySelector('#popup__message');
 addEventListenersToForms();
 // Agrega event listener al boton de carrito
 document.getElementsByClassName('fa-cart-shopping')[0].addEventListener('click', showCart);
+// Carga el carrito de Local Storage
+loadCart();

@@ -155,8 +155,11 @@ div#modal__container {
 div.product__card {
     background-color: var(--eerie__color);
     padding: 1rem;
-    img {
-        width: 100%;
+    div.product__card__image {
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
     }
     h3 {
         color: var(--poppy__color);
@@ -197,6 +200,14 @@ div.product__card {
 div#modal__content {
     display: flex;
     flex-direction: column;
+    div#cart__total {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 1rem;
+        margin-top: 1rem;
+        border-top: 1px solid var(--poppy__color);
+    }
 }
 
 // Popup messages
