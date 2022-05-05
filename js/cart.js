@@ -221,9 +221,20 @@ function loadCart() {
 
 // Muestra mensaje emergente
 function showPopup (message) {
-    popup.innerHTML = message;
-    popup.style.display = 'flex';
-    setTimeout ( function () { popup.style.display='none' }, 1000 );
+    // popup.innerHTML = message;
+    // popup.style.display = 'flex';
+    // setTimeout ( function () { popup.style.display='none' }, 1000 );
+    Toastify({
+        text: message,
+        duration: 4000,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          background: "#202020",
+        },
+      }).showToast();
 }
 
 // Muestra el carrito
