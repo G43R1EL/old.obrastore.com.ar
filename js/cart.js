@@ -162,7 +162,7 @@ function addProductToCart(productId, qty) {
         precio: product.precio,
         cantidad: qty
     };
-    if (cartItem.qty < 0) { // Si cantidad es negativa quita producto del carrito
+    if (qty < 0) { // Si cantidad es negativa quita producto del carrito
         removeProductFromCart(productId, qty);
     } else if (qty > 0) { // Si cantidad es positiva agrega producto al carrito
         // Verifica si el producto ya esta en el carrito
