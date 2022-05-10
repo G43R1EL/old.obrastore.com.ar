@@ -1,76 +1,3 @@
-// Arreglo de productos
-const productsList = [
-    {
-        id: '1000', 
-        nombre: 'Caldera Orbis 230TDO', 
-        descripcion: 'Caldera para piscina 30.000kcal', 
-        precio: 100318, 
-        imagen: '../assets/products/230tdo.webp' 
-    },
-    { 
-        id: '1001', 
-        nombre: 'Caldera Peisa Diva Duo', 
-        descripcion: 'Caldera tiro natural 24.000kcal', 
-        precio: 166000, 
-        imagen: '../assets/products/diva.webp' },
-    { 
-        id: '1002', 
-        nombre: 'Caldera Ariston 24ff', 
-        descripcion: 'Caldera tiro forzado 25.800kcal', 
-        precio: 173255, 
-        imagen: '../assets/products/24ff.webp' 
-    },
-    { 
-        id: '1003', 
-        nombre: 'Caldera Baxi 24Kw', 
-        descripcion: 'Caldera tiro forzado balanceado 24Kw', 
-        precio: 174999, 
-        imagen: '../assets/products/econova.webp' 
-    },
-    { 
-        id: '1004', 
-        nombre: 'Kit losa radiante Servel', 
-        descripcion: 'Kit completo de losa radiante 7 a 9m2', 
-        precio: 18114, 
-        imagen: '../assets/products/servel.webp' 
-    },
-    { 
-        id: '1005', 
-        nombre: 'Multisplit Samsung', 
-        descripcion: 'Multisplit Inverter Samsung 4a1 3x2300fg + 1x5500fg Ue 10kw', 
-        precio: 680000, 
-        imagen: '../assets/products/multisplit.webp' 
-    },
-    { 
-        id: '1006', 
-        nombre: 'Aire acondicionado Split LG', 
-        descripcion: 'Aire acondicionado LG split inverter frío/calor 9000 frigorías blanco 220V AVNW36GM1S0', 
-        precio: 399483, 
-        imagen: '../assets/products/split.webp' 
-    },
-    { 
-        id: '1007', 
-        nombre: 'Salamandra Tromen Chaltén', 
-        descripcion: 'Salamandra Tromen Chaltén de 9000kcal/h', 
-        precio: 103239, 
-        imagen: '../assets/products/chalten.webp' 
-    },
-    { 
-        id: '1008', 
-        nombre: 'Salamandra Tromen Pehuén', 
-        descripcion: 'Salamandra Tromen Pehuén P-7500',
-        precio: 48999,
-        imagen: '../assets/products/pehuen.webp' 
-    },
-    { 
-        id: '1009', 
-        nombre: 'Tiro balanceado Volcan', 
-        descripcion: 'Calefactor Tiro Balanceado Volcan 5700kcal', 
-        precio: 32158, 
-        imagen: '../assets/products/volcan.webp' 
-    }
-];
-
 // Genera las tarjetas de productos
 function generateProductsHtml(products) {
     let html = '';
@@ -251,15 +178,24 @@ function refreshCart() {
     cart.length > 0 ? addEventListenersToDeleteButtons() : cartContainer.innerHTML = '<h2>Carrito vacío</h2>';
 }
 
+// Firebase Realtime Database REST API
+async function getProducts() {
+    const products = [];
+    await fetch("https://crud-51b3a-default-rtdb.firebaseio.com/productos.json")
+        .then(response => response.json())
+        .then(data => {
+            Object.keys(data).forEach(key => {
+                products.push(data[key]);
+            });
+        });
+    document.getElementById('products').innerHTML = generateProductsHtml(products);
+    addEventListenersToForms();
+}
+
 // Crea el carrito
 let cart = [];
 // Carga el html de productos en el div#products
-document.getElementById('products').innerHTML = generateProductsHtml(productsList);
-// Prepara los mensajes emergentes...
-document.querySelector('body').insertAdjacentHTML("afterbegin","<div id='popup__message'></div>");
-const popup = document.querySelector('#popup__message');
-// Agrega event listeners a los botones de agregar producto
-addEventListenersToForms();
+getProducts();
 // Agrega event listener al boton de carrito
 document.getElementsByClassName('fa-cart-shopping')[0].addEventListener('click', showCart);
 // Carga el carrito de Local Storage
