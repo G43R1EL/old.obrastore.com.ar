@@ -96,6 +96,24 @@ header {
                     }
                     i.fa-cart-shopping {
                         cursor: pointer;
+                        position: relative;
+                        & i#cart_count {
+                            position: absolute;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            text-align: center;
+                            width: 1rem;
+                            height: 1rem;
+                            top: -.75rem;
+                            right: -.75rem;
+                            background-color: var(--poppy__color);
+                            color: var(--eerie__color);
+                            border-radius: 50%;
+                            padding: .2rem;
+                            font-size: .75rem;
+                            font-weight: 700;
+                        }
                     }
                 }
             }

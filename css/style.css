@@ -104,7 +104,24 @@ header {
               header .container div#header__info ul.social li span {
                 display: inline; } }
           header .container div#header__info ul.social li i.fa-cart-shopping {
-            cursor: pointer; }
+            cursor: pointer;
+            position: relative; }
+            header .container div#header__info ul.social li i.fa-cart-shopping i#cart_count {
+              position: absolute;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              width: 1rem;
+              height: 1rem;
+              top: -.75rem;
+              right: -.75rem;
+              background-color: var(--poppy__color);
+              color: var(--eerie__color);
+              border-radius: 50%;
+              padding: .2rem;
+              font-size: .75rem;
+              font-weight: 700; }
     header .container .logo {
       margin: 1rem 1rem 0 1rem; }
       @media screen and (orientation: portrait) {
@@ -600,6 +617,14 @@ div#modal__container {
       div#modal__container div#modal__form div#modal__content table i.fa-trash-can {
         color: #ff6666;
         cursor: pointer; }
+      div#modal__container div#modal__form div#modal__content table i.fa-circle-minus {
+        color: #ff6666;
+        cursor: pointer;
+        margin: 0 0 0 .5rem; }
+      div#modal__container div#modal__form div#modal__content table i.fa-circle-plus {
+        color: #66ff66;
+        cursor: pointer;
+        margin: 0 .5rem 0 0; }
       div#modal__container div#modal__form div#modal__content button#cart__save {
         background-color: var(--poppy__color);
         color: var(--eerie__color);
@@ -655,6 +680,14 @@ div#modal__content {
     padding: 1rem;
     margin-top: 1rem;
     border-top: 1px solid var(--poppy__color); }
+  div#modal__content table {
+    font-size: .75rem; }
+    @media screen and (orientation: landscape) {
+      div#modal__content table {
+        font-size: 1rem; } }
+    @media screen and (min-width: 768px) {
+      div#modal__content table {
+        font-size: 1rem; } }
 
 div#popup__message {
   color: var(--cultured__color);
@@ -673,7 +706,7 @@ div#popup__message {
   z-index: 2000; }
 
 .toastify {
-  box-shadow: 2px 2px 1px 2px rgba(248, 193, 15, 0.5); }
+  box-shadow: 1px 1px 1px 2px rgba(248, 193, 15, 0.25); }
 
 .poppy_fade {
   transition: 0.5s; }

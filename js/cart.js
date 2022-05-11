@@ -1,3 +1,6 @@
+// Lista de productos
+const productsList = [];
+
 // Genera las tarjetas de productos
 function generateProductsHtml(products) {
     let html = '';
@@ -35,7 +38,7 @@ function generateCartHtml() {
     cart.forEach(product => {
         html += `<tr>
                     <td>${product.nombre}</td>
-                    <td>${product.cantidad}</td>
+                    <td><i class="fa-solid fa-circle-plus" id="plusBtn_${product.id}"></i>${product.cantidad}<i class="fa-solid fa-circle-minus" id="minusBtn_${product.id}"></i></td>
                     <td>$ ${product.precio}</td>
                     <td>$ ${product.precio * product.cantidad}</td>
                     <td><i class="fa-solid fa-trash-can" id="removeBtn_${product.id}"></i></td>
@@ -61,9 +64,12 @@ function addEventListenersToForms() {
     });
 }
 
-// Agrega event listener a los botones de eliminar producto
-function addEventListenersToDeleteButtons() {
+// Agrega event listener a los botones de producto
+function addEventListenersToProductsButtons() {
     const deleteButtons = document.querySelectorAll('.fa-solid.fa-trash-can');
+    const plusButtons = document.querySelectorAll('.fa-solid.fa-circle-plus');
+    const minusButtons = document.querySelectorAll('.fa-solid.fa-circle-minus');
+
     deleteButtons.forEach(button => {
         button.addEventListener('click', () => {
             const id = button.id.split('_')[1];
@@ -72,6 +78,25 @@ function addEventListenersToDeleteButtons() {
             refreshCart();
         });
     });
+
+    plusButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const id = button.id.split('_')[1];
+            const qty = 1;
+            addProductToCart(id, qty);
+            refreshCart();
+        });
+    });
+
+    minusButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const id = button.id.split('_')[1];
+            const qty = -1;
+            addProductToCart(id, qty);
+            refreshCart();
+        });
+    });
+    
 }
 
 // Obtiene el producto por id
@@ -135,6 +160,8 @@ function getCartTotal() {
 // Guarda el carrito en Local Storage
 function saveCart() {
     cart.length > 0 ? localStorage.setItem('cart', JSON.stringify(cart)) : localStorage.removeItem('cart');
+    cart.length > 0 ? qtyIndicator.style.visibility = 'visible' : qtyIndicator.style.visibility = 'hidden';
+    qtyIndicator.innerHTML = cart.length;
 }
 
 // Carga el carrito de Local Storage
@@ -143,6 +170,8 @@ function loadCart() {
     if (cartData) {
         cart = JSON.parse(cartData);
         showPopup('Carrito cargado');
+        cart.length > 0 ? qtyIndicator.style.visibility = 'visible' : qtyIndicator.style.visibility = 'hidden';
+        qtyIndicator.innerHTML = cart.length;
     }
 }
 
@@ -153,7 +182,7 @@ function showPopup (message) {
     // setTimeout ( function () { popup.style.display='none' }, 1000 );
     Toastify({
         text: message,
-        duration: 4000,
+        duration: 1000,
         close: true,
         gravity: "top",
         position: "right",
@@ -175,25 +204,31 @@ function refreshCart() {
     const cartHtml = generateCartHtml();
     const cartContainer = document.querySelector('#modal__content');
     cartContainer.innerHTML = cartHtml;
-    cart.length > 0 ? addEventListenersToDeleteButtons() : cartContainer.innerHTML = '<h2>Carrito vacío</h2>';
+    cart.length > 0 ? addEventListenersToProductsButtons() : cartContainer.innerHTML = '<h2>Carrito vacío</h2>';
 }
 
 // Firebase Realtime Database REST API
 async function getProducts() {
-    const products = [];
-    await fetch("https://crud-51b3a-default-rtdb.firebaseio.com/productos.json")
+    try {
+        await fetch("https://crud-51b3a-default-rtdb.firebaseio.com/productos.json")
         .then(response => response.json())
         .then(data => {
             Object.keys(data).forEach(key => {
-                products.push(data[key]);
+                productsList.push(data[key]);
             });
         });
-    document.getElementById('products').innerHTML = generateProductsHtml(products);
-    addEventListenersToForms();
+        document.getElementById('products').innerHTML = generateProductsHtml(productsList);
+        addEventListenersToForms();
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // Crea el carrito
 let cart = [];
+// Selecciona el indicador de cantidad
+const qtyIndicator = document.getElementById("cart_count");
+qtyIndicator.style.visibility = 'hidden';
 // Carga el html de productos en el div#products
 getProducts();
 // Agrega event listener al boton de carrito
