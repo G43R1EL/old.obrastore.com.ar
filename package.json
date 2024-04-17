@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "node-sass": "^7.0.1",
-    "nodemon": "^2.0.15"
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.1.0"
   },
   "name": "obrastore.com.ar",
   "version": "1.0.0",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/G43R1EL/obrastore.com.ar.git"
+    "url": "https://github.com/G43R1EL/old.obrastore.com.ar.git"
   },
   "keywords": [
     "obrastore",
@@ -27,7 +27,7 @@
   "author": "NG Computers",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/G43R1EL/obrastore.com.ar/issues"
+    "url": "https://github.com/G43R1EL/old.obrastore.com.ar/issues"
   },
-  "homepage": "https://github.com/G43R1EL/obrastore.com.ar#readme"
+  "homepage": "https://github.com/G43R1EL/old.obrastore.com.ar#readme"
 }
